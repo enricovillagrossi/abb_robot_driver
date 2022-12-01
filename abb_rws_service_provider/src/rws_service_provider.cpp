@@ -243,6 +243,9 @@ bool RWSServiceProvider::getRCDescription(GetRCDescription::Request&, GetRCDescr
 
 bool RWSServiceProvider::verifyAutoMode(uint16_t& result_code, std::string& message)
 {
+  // Enrico 01/12/2022 remove AUTO MODE CHECK robot can move also in manual
+  return true;
+  
   if(!system_state_.auto_mode)
   {
     message = abb_robot_msgs::ServiceResponses::NOT_IN_AUTO_MODE;
